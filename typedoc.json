@@ -1,0 +1,26 @@
+{
+    "name": "Data-Forge",
+    "readme": "none",
+    "mode": "file",
+    "exclude": [
+        "**/node_modules/**/*",
+        "**/src/lib/iterables/*",
+        "**/src/lib/iterators/*",
+        "**/src/test/**/*"
+    ],
+    "theme": "default",
+    "ignoreCompilerErrors": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES5",
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "stripInternal": true,
+    "suppressExcessPropertyErrors": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "module": "commonjs",
+    "excludeExternals": true,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeNotExported": true
+  }
