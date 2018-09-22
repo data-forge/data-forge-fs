@@ -1,11 +1,9 @@
 {
-    "name": "Data-Forge",
+    "name": "Data-Forge FS",
     "readme": "none",
     "mode": "file",
     "exclude": [
         "**/node_modules/**/*",
-        "**/src/lib/iterables/*",
-        "**/src/lib/iterators/*",
         "**/src/test/**/*"
     ],
     "theme": "default",

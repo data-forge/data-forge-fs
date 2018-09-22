@@ -207,6 +207,18 @@ class JsonSerializer<IndexT, ValueT> implements IJsonSerializer {
 //
 declare module "data-forge-beta/build/lib/dataframe" {
 
+    /**
+     * Interface that represents a dataframe.
+     * A dataframe contains an indexed sequence of data records.
+     * Think of it as a spreadsheet or CSV file in memory.
+     * 
+     * Each data record contains multiple named fields, the value of each field represents one row in a column of data.
+     * Each column of data is a named {@link Series}.
+     * You think of a dataframe a collection of named data series.
+     * 
+     * @typeparam IndexT The type to use for the index.
+     * @typeparam ValueT The type to use for each row/data record.
+     */
     interface IDataFrame<IndexT, ValueT> {
 
         /**
@@ -250,6 +262,18 @@ declare module "data-forge-beta/build/lib/dataframe" {
         asJSON(): IJsonSerializer;
     }
 
+    /**
+     * Class that represents a dataframe.
+     * A dataframe contains an indexed sequence of data records.
+     * Think of it as a spreadsheet or CSV file in memory.
+     * 
+     * Each data record contains multiple named fields, the value of each field represents one row in a column of data.
+     * Each column of data is a named {@link Series}.
+     * You think of a dataframe a collection of named data series.
+     * 
+     * @typeparam IndexT The type to use for the index.
+     * @typeparam ValueT The type to use for each row/data record.
+     */
     interface DataFrame<IndexT, ValueT> {
 
         /**
@@ -294,11 +318,47 @@ declare module "data-forge-beta/build/lib/dataframe" {
     }
 }
 
-function asCSV<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>): ICsvSerializer {
+/**
+ * Treat the dataframe as CSV data for purposes of serialization.
+ * This is the first step you need in serializing a dataframe to a CSV data file.
+ * 
+ * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
+ * 
+ * @example
+ * <pre>
+ * 
+ * df.asCSV().writeFileSync("my-data-file.csv");
+ * </pre>
+ * 
+ * @example
+ * <pre>
+ * 
+ * await df.asCSV().writeFile("my-data-file.csv");
+ * </pre>
+ */
+export function asCSV<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>): ICsvSerializer {
     return new CsvSerializer<IndexT, ValueT>(this);
 }
 
-function asJSON<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>): IJsonSerializer {
+/**
+ * Treat the dataframe as JSON data for purposes of serialization.
+ * This is the first step you need in serializing a dataframe to a JSON data file.
+ * 
+ * @return Returns a {@link IJsonSerializer} that represents the dataframe for serialization in the JSON format. Call `writeFile` or `writeFileSync` to output the JSON data to a text file.
+ * 
+ * @example
+ * <pre>
+ * 
+ * df.asJSON().writeFileSync("my-data-file.json");
+ * </pre>
+ * 
+ * @example
+ * <pre>
+ * 
+ * await df.asJSON().writeFile("my-data-file.json");
+ * </pre>
+ */
+export function asJSON<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>): IJsonSerializer {
     return new JsonSerializer<IndexT, ValueT>(this);
 }
 
@@ -485,7 +545,7 @@ declare module "data-forge-beta" {
  * 
  * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
  */
-function readFile (filePath: string): IAsyncFileReader {
+export function readFile (filePath: string): IAsyncFileReader {
 
     assert.isString(filePath, "Expected 'filePath' parameter to dataForge.readFile to be a string that specifies the path of the file to read.");
 
@@ -499,8 +559,10 @@ function readFile (filePath: string): IAsyncFileReader {
  * @param filePath The path to the file to read.
  * 
  * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
+ * 
+ * @memberOf Data-Forge
  */
-function readFileSync (filePath: string): ISyncFileReader {
+export function readFileSync (filePath: string): ISyncFileReader {
 
     assert.isString(filePath, "Expected 'filePath' parameter to dataForge.readFileSync to be a string that specifies the path of the file to read.");
 
