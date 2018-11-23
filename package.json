@@ -1,7 +1,7 @@
 {
     "name": "data-forge-fs",
-    "version": "0.0.1",
-    "description": "This library contains the file system extensions to Data-Forge that allow it to directly read and write CSV and JSON files.",
+    "version": "0.0.2",
+    "description": "This library contains the file system extensions to Data-Forge that allow it to directly read and write CSV and JSON files in Node.js.",
     "main": "build/index.js",
     "types": "build/index.d.ts",
     "scripts": {
@@ -31,7 +31,7 @@
         "chai": "^4.1.2"
     },
     "peerDependencies": {
-        "data-forge-beta": "^1.3.0"
+        "data-forge": "^1.3.0"
     },
     "devDependencies": {
         "@types/chai": "^4.1.4",

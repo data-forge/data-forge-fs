@@ -1,6 +1,6 @@
 import { assert } from 'chai';
-import { IDataFrame, DataFrame, fromJSON, fromCSV, ICSVOptions } from 'data-forge-beta';
-import * as dataForge from 'data-forge-beta';
+import { IDataFrame, DataFrame, fromJSON, fromCSV, ICSVOptions } from 'data-forge';
+import * as dataForge from 'data-forge';
 
 /** 
  * Packages a dataframe ready for serialization to a CSV format text file.
@@ -205,7 +205,7 @@ class JsonSerializer<IndexT, ValueT> implements IJsonSerializer {
 //
 // Augment IDataFrame and DataFrame with fs functions.
 //
-declare module "data-forge-beta/build/lib/dataframe" {
+declare module "data-forge/build/lib/dataframe" {
 
     /**
      * Interface that represents a dataframe.
@@ -514,7 +514,7 @@ class SyncFileReader implements ISyncFileReader {
 //
 // Augmuent the data-forge namespace to add new functions.
 //
-declare module "data-forge-beta" {
+declare module "data-forge" {
 
     /**
      * Read a file asynchronously from the file system.

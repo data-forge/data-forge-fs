@@ -1,7 +1,7 @@
 import { assert, expect } from 'chai';
 import 'mocha';
 import * as mock from 'mock-require';
-import * as dataForge from 'data-forge-beta';
+import * as dataForge from 'data-forge';
 import '../index';
 
 describe('readFile csv', () => {
