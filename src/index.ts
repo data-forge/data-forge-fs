@@ -394,6 +394,21 @@ export interface IAsyncFileReader {
      * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV();
+     * </pre>
+
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV(options);
+     * </pre>
      */
     parseCSV (config?: ICSVOptions): Promise<IDataFrame<number, any>>;
 
@@ -402,6 +417,12 @@ export interface IAsyncFileReader {
      * Returns a promise that later resolves to a DataFrame.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.json").parseJSON();
+     * </pre>
      */
     parseJSON (): Promise<IDataFrame<number, any>>;
 }
@@ -425,6 +446,21 @@ class AsyncFileReader implements IAsyncFileReader {
      * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV();
+     * </pre>
+     *
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV(options);
+     * </pre>
      */
     async parseCSV (config?: ICSVOptions): Promise<IDataFrame<number, any>> {
         if (config) {
@@ -440,6 +476,12 @@ class AsyncFileReader implements IAsyncFileReader {
      * Returns a promise that later resolves to a DataFrame.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
+     * 
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.json").parseJSON();
+     * </pre>
      */
     async parseJSON (): Promise<IDataFrame<number, any>> {
         const fileData = await readFileData(this.filePath);
@@ -458,6 +500,21 @@ export interface ISyncFileReader {
      * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV();
+     * </pre>
+
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV(options);
+     * </pre>
      */
     parseCSV (config?: ICSVOptions): IDataFrame<number, any>;
 
@@ -465,6 +522,12 @@ export interface ISyncFileReader {
      * Deserialize a JSON file to a DataFrame.
      * 
      * @returns {DataFrame} Returns a dataframe that was deserialized from the file.  
+     * 
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.json").parseJSON();
+     * </pre>
      */
     parseJSON (): IDataFrame<number, any>;
 }
@@ -487,6 +550,21 @@ class SyncFileReader implements ISyncFileReader {
      * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV();
+     * </pre>
+     *
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV(options);
+     * </pre>
      */
     parseCSV (config?: ICSVOptions): IDataFrame<number, any> {
         if (config) {
@@ -503,6 +581,12 @@ class SyncFileReader implements ISyncFileReader {
      * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.  
+     * 
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.json").parseJSON();
+     * </pre>
      */
     parseJSON (): IDataFrame<number, any> {
 
@@ -523,6 +607,27 @@ declare module "data-forge" {
      * @param filePath The path to the file to read.
      * 
      * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV();
+     * </pre>
+
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = await dataForge.readFile("my-data-file.csv").parseCSV(options);
+     * </pre>
+     * 
+     * @example
+     * <pre>
+     * 
+     * const df = await dataForge.readFile("my-data-file.json").parseJSON();
+     * </pre>
      */
     function readFile (filePath: string): IAsyncFileReader;
 
@@ -533,6 +638,27 @@ declare module "data-forge" {
      * @param filePath The path to the file to read.
      * 
      * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
+     *
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV();
+     * </pre>
+
+     * @example
+     * <pre>
+     * 
+     * const options = {
+     *      // ...
+     * };
+     * const df = dataForge.readFileSync("my-data-file.csv").parseCSV(options);
+     * </pre>
+     * 
+     * @example
+     * <pre>
+     * 
+     * const df = dataForge.readFileSync("my-data-file.json").parseJSON();
+     * </pre>
      */
     export function readFileSync (filePath: string): ISyncFileReader    
 }
@@ -544,6 +670,27 @@ declare module "data-forge" {
  * @param filePath The path to the file to read.
  * 
  * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
+ *
+ * @example
+ * <pre>
+ * 
+ * const df = await dataForge.readFile("my-data-file.csv").parseCSV();
+ * </pre>
+ *
+ * @example
+ * <pre>
+ * 
+ * const options = {
+ *      // ...
+ * };
+ * const df = await dataForge.readFile("my-data-file.csv").parseCSV(options);
+ * </pre>
+ * 
+ * @example
+ * <pre>
+ * 
+ * const df = await dataForge.readFile("my-data-file.json").parseJSON();
+ * </pre>
  */
 export function readFile (filePath: string): IAsyncFileReader {
 
@@ -561,8 +708,29 @@ export function readFile (filePath: string): IAsyncFileReader {
  * @returns Returns an object that represents the file. Use `parseCSV` or `parseJSON` to deserialize to a DataFrame.
  * 
  * @memberOf Data-Forge
+ *
+ * @example
+ * <pre>
+ * 
+ * const df = dataForge.readFileSync("my-data-file.csv").parseCSV();
+ * </pre> 
+ *
+ * @example
+ * <pre>
+ * 
+ * const options = {
+ *      // ...
+ * };
+ * const df = dataForge.readFileSync("my-data-file.csv").parseCSV(options);
+ * </pre>
+ * 
+ * @example
+ * <pre>
+ * 
+ * const df = dataForge.readFileSync("my-data-file.json").parseJSON();
+ * </pre>
  */
-export function readFileSync (filePath: string): ISyncFileReader {
+export function readFileSync(filePath: string): ISyncFileReader {
 
     assert.isString(filePath, "Expected 'filePath' parameter to dataForge.readFileSync to be a string that specifies the path of the file to read.");
 

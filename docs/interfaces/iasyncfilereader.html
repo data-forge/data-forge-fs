@@ -103,7 +103,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/c7a0a21/src/index.ts#L398">index.ts:398</a></li>
+									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/f1cad7b/src/index.ts#L413">index.ts:413</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -111,6 +111,23 @@
 									<p>Deserialize a CSV file to a DataFrame.
 									Returns a promise that later resolves to a DataFrame.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre>
+
+const df = await dataForge.readFile("my-data-file.csv").parseCSV();
+</pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre>
+
+const options = {
+     // ...
+};
+const df = await dataForge.readFile("my-data-file.csv").parseCSV(options);
+</pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -133,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/c7a0a21/src/index.ts#L406">index.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/f1cad7b/src/index.ts#L427">index.ts:427</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -141,6 +158,14 @@
 									<p>Deserialize a JSON file to a DataFrame.
 									Returns a promise that later resolves to a DataFrame.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre>
+
+const df = await dataForge.readFile("my-data-file.json").parseJSON();
+</pre>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IDataFrame</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Returns a promise of a dataframe loaded from the file.</p>
