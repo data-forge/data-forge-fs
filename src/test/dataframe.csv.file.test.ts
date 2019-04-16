@@ -105,4 +105,27 @@ describe('DataFrame csv file', function () {
         dataFrame.asCSV().writeFileSync(testFilePath);
     });
 
+    it('can write CSV file asynchronously', async () => {
+
+        var testFilePath = "some/file.csv"
+        var testCsvData 
+            = "1,2\r\n"
+            + "3,4"
+            ; 
+        var dataFrame = dataForge.fromCSV(testCsvData);
+        let didWrite = false;
+
+        mock('fs', { 
+            writeFile: (filePath: string, fileData: string, callback: Function): void => {
+                didWrite = true;
+                expect(filePath).to.eql(testFilePath);
+                expect(fileData).to.eql(testCsvData);
+
+                callback(null);
+            },
+        });
+        
+        await dataFrame.asCSV().writeFile(testFilePath);
+        expect(didWrite).to.eql(true);
+    });
 });
