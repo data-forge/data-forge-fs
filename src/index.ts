@@ -1,6 +1,7 @@
 import { assert } from 'chai';
 import { IDataFrame, DataFrame, fromJSON, fromCSV, ICSVOptions } from 'data-forge';
 import * as dataForge from 'data-forge';
+import { ICSVOutputOptions } from 'data-forge/build/lib/dataframe';
 
 /** 
  * Packages a dataframe ready for serialization to a CSV format text file.
@@ -47,8 +48,11 @@ class CsvSerializer<IndexT, ValueT> implements ICsvSerializer {
 
     dataframe: IDataFrame<IndexT, ValueT>;
 
-    constructor (dataframe: IDataFrame<IndexT, ValueT>) {
+    options?: ICSVOutputOptions;
+
+    constructor (dataframe: IDataFrame<IndexT, ValueT>, options?: ICSVOutputOptions) {
         this.dataframe = dataframe;
+        this.options = options;
     }
     
     /**
@@ -71,7 +75,7 @@ class CsvSerializer<IndexT, ValueT> implements ICsvSerializer {
 
         return new Promise((resolve, reject) => {
             const fs = require('fs');	
-            fs.writeFile(filePath, this.dataframe.toCSV(), (err: any) => {
+            fs.writeFile(filePath, this.dataframe.toCSV(this.options), (err: any) => {
                 if (err) {
                     reject(err);
                     return;
@@ -98,7 +102,7 @@ class CsvSerializer<IndexT, ValueT> implements ICsvSerializer {
         assert.isString(filePath, "Expected 'filePath' parameter to 'DataFrame.asCSV().writeFileSync' to be a string that specifies the path of the file to write to the local file system.");
 
         const fs = require('fs');	
-        fs.writeFileSync(filePath, this.dataframe.toCSV());
+        fs.writeFileSync(filePath, this.dataframe.toCSV(this.options));
     }
 }
 
@@ -322,6 +326,8 @@ declare module "data-forge/build/lib/dataframe" {
  * Treat the dataframe as CSV data for purposes of serialization.
  * This is the first step you need in serializing a dataframe to a CSV data file.
  * 
+ * @param [options] Optional configuration for CSV output.
+ * 
  * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
  * 
  * @example
@@ -336,8 +342,8 @@ declare module "data-forge/build/lib/dataframe" {
  * await df.asCSV().writeFile("my-data-file.csv");
  * </pre>
  */
-export function asCSV<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>): ICsvSerializer {
-    return new CsvSerializer<IndexT, ValueT>(this);
+export function asCSV<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>, options?: ICSVOutputOptions): ICsvSerializer {
+    return new CsvSerializer<IndexT, ValueT>(this, options);
 }
 
 /**
