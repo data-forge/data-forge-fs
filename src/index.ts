@@ -229,6 +229,8 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
+         * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+         * 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
          * @example
@@ -242,8 +244,15 @@ declare module "data-forge/build/lib/dataframe" {
          * 
          * await df.asCSV().writeFile("my-data-file.csv");
          * </pre>
+         * 
+         * @example
+         * <pre>
+         * 
+         * const options = { ... };
+         * await df.asCSV(options).writeFile("my-data-file.csv");
+         * </pre>
          */
-        asCSV(): ICsvSerializer;
+        asCSV(options?: ICSVOutputOptions): ICsvSerializer;
 
         /**
          * Treat the dataframe as JSON data for purposes of serialization.
@@ -284,6 +293,8 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
+         * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+         * 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
          * @example
@@ -297,8 +308,15 @@ declare module "data-forge/build/lib/dataframe" {
          * 
          * await df.asCSV().writeFile("my-data-file.csv");
          * </pre>
+         * 
+         * @example
+         * <pre>
+         * 
+         * const options = { ... };
+         * await df.asCSV(options).writeFile("my-data-file.csv");
+         * </pre>
          */
-        asCSV(): ICsvSerializer;
+        asCSV(options?: ICSVOutputOptions): ICsvSerializer;
 
         /**
          * Treat the dataframe as JSON data for purposes of serialization.
@@ -326,7 +344,7 @@ declare module "data-forge/build/lib/dataframe" {
  * Treat the dataframe as CSV data for purposes of serialization.
  * This is the first step you need in serializing a dataframe to a CSV data file.
  * 
- * @param [options] Optional configuration for CSV output.
+ * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
  * 
  * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
  * 
@@ -340,6 +358,13 @@ declare module "data-forge/build/lib/dataframe" {
  * <pre>
  * 
  * await df.asCSV().writeFile("my-data-file.csv");
+ * </pre>
+ * 
+ * @example
+ * <pre>
+ * 
+ * const options = { ... };
+ * await df.asCSV(options).writeFile("my-data-file.csv");
  * </pre>
  */
 export function asCSV<IndexT, ValueT>(this: IDataFrame<IndexT, ValueT>, options?: ICSVOutputOptions): ICsvSerializer {
