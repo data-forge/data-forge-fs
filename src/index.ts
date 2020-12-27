@@ -423,6 +423,7 @@ export interface IAsyncFileReader {
      * Returns a promise that later resolves to a DataFrame.
      * 
      * @param config Optional configuration file for parsing.
+     * The config object is passed directly to [PapaParse.parse](https://www.papaparse.com/docs#strings), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
      *
@@ -475,6 +476,7 @@ class AsyncFileReader implements IAsyncFileReader {
      * Returns a promise that later resolves to a DataFrame.
      * 
      * @param config Optional configuration file for parsing.
+     * The config object is passed directly to [PapaParse.parse](https://www.papaparse.com/docs#strings), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
      *
@@ -529,6 +531,7 @@ export interface ISyncFileReader {
      * Deserialize a CSV file to a DataFrame.
      * 
      * @param config Optional configuration file for parsing.
+     * The config object is passed directly to [PapaParse.parse](https://www.papaparse.com/docs#strings), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
      * 
      * @returns Returns a dataframe that was deserialized from the file.
      *
@@ -579,6 +582,7 @@ class SyncFileReader implements ISyncFileReader {
      * Deserialize a CSV file to a DataFrame.
      * 
      * @param config Optional configuration file for parsing.
+     * The config object is passed directly to [PapaParse.parse](https://www.papaparse.com/docs#strings), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
      * 
      * @returns Returns a dataframe that was deserialized from the file.
      *
