@@ -96,7 +96,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/463368c/src/index.ts#L345">index.ts:345</a></li>
+									<li>Defined in index.ts:370</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -117,6 +117,13 @@ df.asCSV().writeFileSync("my-data-file.csv");
 await df.asCSV().writeFile("my-data-file.csv");
 </pre>
 									</dd>
+									<dt>example</dt>
+									<dd><pre>
+
+const options = { ... };
+await df.asCSV(options).writeFile("my-data-file.csv");
+</pre>
+									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -135,6 +142,9 @@ await df.asCSV().writeFile("my-data-file.csv");
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">ICSVOutputOptions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Options for CSV output. The options object is passed directly to <a href="https://www.papaparse.com/docs#unparse">PapaParse.unparse</a>, please see <a href="https://www.papaparse.com/docs#unparse-config-default">PapaParse docs for additional options</a>.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="interfaces/icsvserializer.html" class="tsd-signature-type">ICsvSerializer</a></h4>
@@ -152,7 +162,7 @@ await df.asCSV().writeFile("my-data-file.csv");
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/463368c/src/index.ts#L367">index.ts:367</a></li>
+									<li>Defined in index.ts:392</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,7 +215,7 @@ await df.asJSON().writeFile("my-data-file.json");
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/463368c/src/index.ts#L701">index.ts:701</a></li>
+									<li>Defined in index.ts:728</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -261,7 +271,7 @@ const df = await dataForge.readFile("my-data-file.json").parseJSON();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/data-forge/data-forge-fs/blob/463368c/src/index.ts#L739">index.ts:739</a></li>
+									<li>Defined in index.ts:766</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
