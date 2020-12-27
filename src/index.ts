@@ -229,8 +229,8 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
-         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
-* 
+         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#unparse-config-default).
+         * 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
          * @example
@@ -293,7 +293,7 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
-         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#unparse-config-default).
          * 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
@@ -344,7 +344,7 @@ declare module "data-forge/build/lib/dataframe" {
  * Treat the dataframe as CSV data for purposes of serialization.
  * This is the first step you need in serializing a dataframe to a CSV data file.
  * 
- * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+ * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#unparse-config-default).
  * 
  * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
  * 
