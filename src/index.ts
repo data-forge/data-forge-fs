@@ -229,8 +229,8 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
-         * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
-         * 
+         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+* 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
          * @example
@@ -293,7 +293,7 @@ declare module "data-forge/build/lib/dataframe" {
          * Treat the dataframe as CSV data for purposes of serialization.
          * This is the first step you need in serializing a dataframe to a CSV data file.
          * 
-         * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+         * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
          * 
          * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
          * 
@@ -344,7 +344,7 @@ declare module "data-forge/build/lib/dataframe" {
  * Treat the dataframe as CSV data for purposes of serialization.
  * This is the first step you need in serializing a dataframe to a CSV data file.
  * 
- * @param options Options for CSV output. The options object is passed directly to PapaParse, please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
+ * @param options Options for CSV output. The options object is passed directly to [PapaParse.unparse](https://www.papaparse.com/docs#unparse), please see [PapaParse docs for additional options](https://www.papaparse.com/docs#config).
  * 
  * @return Returns a {@link ICsvSerializer} that represents the dataframe for serialization in the CSV format. Call `writeFile` or `writeFileSync` to output the CSV data to a text file.
  * 
@@ -422,7 +422,7 @@ export interface IAsyncFileReader {
      * Deserialize a CSV file to a DataFrame.
      * Returns a promise that later resolves to a DataFrame.
      * 
-     * @param [config] Optional configuration file for parsing.
+     * @param config Optional configuration file for parsing.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
      *
@@ -474,7 +474,7 @@ class AsyncFileReader implements IAsyncFileReader {
      * Deserialize a CSV file to a DataFrame.
      * Returns a promise that later resolves to a DataFrame.
      * 
-     * @param [config] Optional configuration file for parsing.
+     * @param config Optional configuration file for parsing.
      * 
      * @returns Returns a promise of a dataframe loaded from the file. 
      *
@@ -528,7 +528,7 @@ export interface ISyncFileReader {
     /**
      * Deserialize a CSV file to a DataFrame.
      * 
-     * @param [config] Optional configuration file for parsing.
+     * @param config Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.
      *
@@ -578,7 +578,7 @@ class SyncFileReader implements ISyncFileReader {
     /**
      * Deserialize a CSV file to a DataFrame.
      * 
-     * @param [config] Optional configuration file for parsing.
+     * @param config Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.
      *
@@ -608,8 +608,6 @@ class SyncFileReader implements ISyncFileReader {
 
     /**
      * Deserialize a JSON file to a DataFrame.
-     * 
-     * @param [config] Optional configuration file for parsing.
      * 
      * @returns Returns a dataframe that was deserialized from the file.  
      * 
