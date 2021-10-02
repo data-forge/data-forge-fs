@@ -8,3 +8,4 @@ This library contains the file system extensions to Data-Forge that allow it to 
 
 See [Data-Forge docs](https://github.com/data-forge/data-forge-ts) and [guide](https://github.com/data-forge/data-forge-ts/blob/master/docs/guide.md) for details on how to use.
 
+[Click here to support my work](https://www.codecapers.com.au/about#support-my-work)
